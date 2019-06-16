@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h1> Welcome to the Github Dashboard! </h1>
+
+    <form method="post" name="search">
+        {{ form.csrf_token }}
+        <dl>
+            {{ render_field(form.select) }}
+            <p>
+            {{ render_field(form.search) }}
+        </dl>
+        <p><input type=submit value=Search>
+    </form>
+    <div class="repo-container" style="overflow: auto; max-height: 80vh">
+        <div class="table-responsive">
+            <table class="table" id="repos">
+                <thead>
+                    <tr>
+                        <th scope="col">Repository</th>
+                        <th scope="col"># of Forks</th>
+                        <th scope="col"># of Stars</th>
+                        <th scope="col"># of Contributors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for repo in repos %}
+                    <tr id={{repo.id}}>
+                        <th scope="row"> {{ repo.name }} </th>
+                        <td> {{ repo.forks_count }} </td>
+                        <td> {{ repo.stargazers_count }}</td>
+                        <td> {{ repo.contributors_count }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

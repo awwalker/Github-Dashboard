@@ -1,0 +1,16 @@
+<!doctype html>
+<head>
+    <link rel="stylesheet" media="screen" href="static/css/bootstrap.min.css">
+    <title> Github Dashboard </title>
+</head>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+            <li> {{ message }} </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+{% from "_formhelpers.html" import render_field %}
+{% block body %}{% endblock %}
