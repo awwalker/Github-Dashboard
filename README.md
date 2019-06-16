@@ -9,7 +9,9 @@
 
 3. Download dependencies `python setup.py install` (this project uses Python 3.7.3)
 
-4. Run the Flask server `flask run`
+4. Set necessary flask app variable `export FLASK_APP=dashboard`
+
+4. Run the Flask server `flask run` and navigate to [localhost:5000/](localhost:5000/)
 
 ## Design
 
